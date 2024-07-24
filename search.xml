@@ -9,8 +9,8 @@
 <blockquote>
 <p>ZeroTier是一个强大的内网穿透工具，可以把多个不同网络下的设备连接在一起，就像在一个局域网下!基于P2P连接，P2P无法连接时，ZeroTie也提供了一个服务器做为中继，保持全时可用状态。一般情况下基本够用了，如果想要更高的速度连接也可自建中继服务器Moons，ZeroTier是跨平台的，能安装在几乎任何平台上，无需担心适配性。</p>
 </blockquote>
-<h2 id="ZeroTier怎么使用"><a href="#ZeroTier怎么使用" class="headerlink" title="ZeroTier怎么使用"></a>ZeroTier怎么使用</h2><h3 id="注册-创建网络"><a href="#注册-创建网络" class="headerlink" title="注册&amp;创建网络"></a>注册&amp;创建网络</h3><p>打开zeroTier网站开始注册登录：<a href="https://accounts.zerotier.com/">https://accounts.zerotier.com/</a></p>
-<p>支持多种方式登陆，为了方便我直接选择了google账号登陆：</p>
+<h2 id="ZeroTier怎么使用"><a href="#ZeroTier怎么使用" class="headerlink" title="ZeroTier怎么使用"></a>ZeroTier怎么使用</h2><h3 id="注册-创建网络"><a href="#注册-创建网络" class="headerlink" title="注册&amp;创建网络"></a>注册&amp;创建网络</h3><p>打开ZeroTier网站开始注册登录：<a href="https://accounts.zerotier.com/">https://accounts.zerotier.com/</a></p>
+<p>ZeroTier支持多种方式登陆，为了方便我直接选择了google账号登陆：</p>
 <p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725002841522.png" alt="image-20240725002841522"></p>
 <p>然后创建一个网络，点击NETWORK ID进入具体设置</p>
 <p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725003232035.png" alt="image-20240725003232035"></p>
