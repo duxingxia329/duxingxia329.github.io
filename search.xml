@@ -3,7 +3,31 @@
   <entry>
     <title>ZeroTier内网穿透教程</title>
     <url>/2024/07/25/ZeroTier%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="ZeroTier教程"><a href="#ZeroTier教程" class="headerlink" title="ZeroTier教程"></a>ZeroTier教程</h1><h2 id="ZeroTier是什么"><a href="#ZeroTier是什么" class="headerlink" title="ZeroTier是什么"></a>ZeroTier是什么</h2><p>我有需要远程连接家中设备的需求，通常是远程我的电脑，之后有NAS的话也会需要，所以会涉及到内网穿透工具的使用。</p>
+<p>起初我了解到NAS的时候感觉棒极了，这不就是我想要的一款产品吗，但是目前还舍不得搞他，并且似乎在宿舍搞一个NAS也不太好，可以等以后工作了在房间搞一个。</p>
+<p>有公网ip的话是可以直接ping公网ip，而在没有公网IP的情况下，大家会使用ZeroTier，这是一款强大的内网穿透工具！</p>
+<blockquote>
+<p>ZeroTier是一个强大的内网穿透工具，可以把多个不同网络下的设备连接在一起，就像在一个局域网下!基于P2P连接，P2P无法连接时，ZeroTie也提供了一个服务器做为中继，保持全时可用状态。一般情况下基本够用了，如果想要更高的速度连接也可自建中继服务器Moons，ZeroTier是跨平台的，能安装在几乎任何平台上，无需担心适配性。</p>
+</blockquote>
+<h2 id="ZeroTier怎么使用"><a href="#ZeroTier怎么使用" class="headerlink" title="ZeroTier怎么使用"></a>ZeroTier怎么使用</h2><h3 id="注册-创建网络"><a href="#注册-创建网络" class="headerlink" title="注册&amp;创建网络"></a>注册&amp;创建网络</h3><p>打开zeroTier网站开始注册登录：<a href="https://accounts.zerotier.com/">https://accounts.zerotier.com/</a></p>
+<p>支持多种方式登陆，为了方便我直接选择了google账号登陆：</p>
+<p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725002841522.png" alt="image-20240725002841522"></p>
+<p>然后创建一个网络，点击NETWORK ID进入具体设置</p>
+<p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725003232035.png" alt="image-20240725003232035"></p>
+<p>有了网络之后，会给你一个网络id，这个网络id是非常重要的，其它设备要加入的这个网络，就需要这个网络id</p>
+<p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725003344228.png" alt="image-20240725003344228"></p>
+<h3 id="其他设备加入这个网络"><a href="#其他设备加入这个网络" class="headerlink" title="其他设备加入这个网络"></a>其他设备加入这个网络</h3><p>电脑或者手机安装 zerotier ，加入网络 （join），记得在 zerotier 后台也同意接入</p>
+<p>注：苹果手机需用外网Apple账号下载zerotier</p>
+<p>下载安装之后，就可以再各个设备上点击join network：</p>
+<p>然后填上刚才的那个NETWORK ID号</p>
+<p>然后到zerotier后台，对刚开的设备进行授权，允许它加入局域网中，红色虚线的是没有网络授权的设备，蓝色的表示授权了，只需要勾选上，此设备就可以加入网里面了：</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/3bc186f3af85cffad48a27146b223ef9.png" alt="img"></p>
+<h3 id="开始各个设备互通"><a href="#开始各个设备互通" class="headerlink" title="开始各个设备互通"></a>开始各个设备互通</h3><p>我们在zerotier后台就可以看到我们各个设备的内网ip，然后复制这个内网ip，打开上面的服务，就可以了，比如我在公司，通过这个ip，连接我家里面的电脑：</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/42f2a17aa9dae5bb5ad5d5eaf171acf7.png" alt="img"></p>
+<p>然后在公司电脑上开始键+R</p>
+<p><img src="C:\Users\GMX\AppData\Roaming\Typora\typora-user-images\image-20240725004148700.png" alt="image-20240725004148700"></p>
+<p>就可以访问到家里电脑已经开启共享的文件夹了</p>
+]]></content>
   </entry>
   <entry>
     <title>独行侠的第一个博客</title>
