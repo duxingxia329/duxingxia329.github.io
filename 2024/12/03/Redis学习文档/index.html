@@ -19,22 +19,22 @@
   <meta name="author" content="Monchello Gao">
   <meta name="keywords" content="Guitar, Gym, Movies, Travel, Food, Photography">
   
-    <meta name="description" content="title: Redis学习文档 Redis学习文档基本数据类型针对字符串的命令读写字符串的set和get命令 set key value [EX seconds|PX milliseconds] [NX|XX]  [KEEPTTL]  通过EX和PX参数可以指定该变量的生存时间，只不过EX参数的单位是秒，而PX参数的单位是毫秒 123456789101112131401 127.0.0.1:63">
+    <meta name="description" content="Redis学习文档基本数据类型针对字符串的命令读写字符串的set和get命令 set key value [EX seconds|PX milliseconds] [NX|XX]  [KEEPTTL]  通过EX和PX参数可以指定该变量的生存时间，只不过EX参数的单位是秒，而PX参数的单位是毫秒 123456789101112131401 127.0.0.1:6379&gt; set 001 &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GuaNew&#39;s Blog">
+<meta property="og:title" content="Redis学习文档">
 <meta property="og:url" content="http://example.com/2024/12/03/Redis%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/index.html">
 <meta property="og:site_name" content="GuaNew&#39;s Blog">
-<meta property="og:description" content="title: Redis学习文档 Redis学习文档基本数据类型针对字符串的命令读写字符串的set和get命令 set key value [EX seconds|PX milliseconds] [NX|XX]  [KEEPTTL]  通过EX和PX参数可以指定该变量的生存时间，只不过EX参数的单位是秒，而PX参数的单位是毫秒 123456789101112131401 127.0.0.1:63">
+<meta property="og:description" content="Redis学习文档基本数据类型针对字符串的命令读写字符串的set和get命令 set key value [EX seconds|PX milliseconds] [NX|XX]  [KEEPTTL]  通过EX和PX参数可以指定该变量的生存时间，只不过EX参数的单位是秒，而PX参数的单位是毫秒 123456789101112131401 127.0.0.1:6379&gt; set 001 &amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-03T08:22:36.750Z">
-<meta property="article:modified_time" content="2024-12-03T08:24:37.366Z">
+<meta property="article:published_time" content="2024-12-03T08:30:00.000Z">
+<meta property="article:modified_time" content="2024-12-03T08:32:51.480Z">
 <meta property="article:author" content="Monchello Gao">
-<meta property="article:tag" content="Guitar, Gym, Movies, Travel, Food, Photography">
+<meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>GuaNew&#39;s Blog</title>
+  <title>Redis学习文档 - GuaNew&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Redis学习文档"></span>
           
         </div>
 
@@ -211,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-03 16:22" pubdate>
+        <time datetime="2024-12-03 16:30" pubdate>
           2024年12月3日 下午
         </time>
       </span>
@@ -271,13 +271,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Redis学习文档</h1>
             
             
               <div class="markdown-body">
                 
-                <p>title: Redis学习文档</p>
-<h1 id="Redis学习文档"><a href="#Redis学习文档" class="headerlink" title="Redis学习文档"></a>Redis学习文档</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="针对字符串的命令"><a href="#针对字符串的命令" class="headerlink" title="针对字符串的命令"></a>针对字符串的命令</h3><h4 id="读写字符串的set和get命令"><a href="#读写字符串的set和get命令" class="headerlink" title="读写字符串的set和get命令"></a>读写字符串的set和get命令</h4><blockquote>
+                <h1 id="Redis学习文档"><a href="#Redis学习文档" class="headerlink" title="Redis学习文档"></a>Redis学习文档</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="针对字符串的命令"><a href="#针对字符串的命令" class="headerlink" title="针对字符串的命令"></a>针对字符串的命令</h3><h4 id="读写字符串的set和get命令"><a href="#读写字符串的set和get命令" class="headerlink" title="读写字符串的set和get命令"></a>读写字符串的set和get命令</h4><blockquote>
 <p>set key value [EX seconds|PX milliseconds] [NX|XX]  [KEEPTTL]</p>
 </blockquote>
 <p>通过EX和PX参数可以指定该变量的生存时间，只不过EX参数的单位是秒，而PX参数的单位是毫秒</p>
@@ -627,6 +626,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Redis/" class="print-no-link">#Redis</a>
+      
+    </div>
   
 </div>
 
@@ -636,7 +663,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Redis学习文档</div>
       <div>http://example.com/2024/12/03/Redis学习文档/</div>
     </div>
     <div class="license-meta">
@@ -680,12 +707,6 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/2024/12/03/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
