@@ -27,7 +27,7 @@
 <meta property="og:description" content="This is a Redis Learning blog which is recorded during my internship. Learning the basic commands is boring, I admit it. BUT, Every high-rise buildings are built brick by brick. Hope I’ll be able to k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-03T08:30:00.000Z">
-<meta property="article:modified_time" content="2024-12-04T08:00:56.963Z">
+<meta property="article:modified_time" content="2024-12-04T09:50:51.346Z">
 <meta property="article:author" content="Monchello Gao">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          14k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          109 分钟
+          115 分钟
         
       </span>
     
@@ -766,6 +766,29 @@
 
 <p>这里在运行完第1行的config set命令后，想要通过第3行的 config rewrite 命令把修改写入redis.conf配置文件，但是此时对应的配置文件不存在，所以会出现第4行所给出的错误提示。</p>
 <p>后文将给出生成redis.conf配置文件的详细步骤，通过这些步骤在启动时加载redis.conf文件后，就能正确地运行config rewrite命令了。</p>
+<h3 id="启动Redis服务器时加载配置文件"><a href="#启动Redis服务器时加载配置文件" class="headerlink" title="启动Redis服务器时加载配置文件"></a>启动Redis服务器时加载配置文件</h3><p>由于我们是在Docker环境里安装的Redis，因此需要通过如下步骤编写redis.conf配置文件，并在启动时加载该文件。</p>
+<blockquote>
+<p>创建D:\work\redis\redisConf目录，并在其中新建 redis.conf。在该文件里，编写如下配置项。</p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">port</span> <span class="hljs-number">6379</span> <br><span class="hljs-attribute">bind</span> <span class="hljs-number">127.0.0.1</span> <br><span class="hljs-attribute">timeout</span> <span class="hljs-number">300</span><br></code></pre></td></tr></table></figure>
+
+<p>在第1行里设置了Redis服务器的工作端口为6379，在第2行里设置了绑定的IP地址为12.7.0.0.1，这里用的都是默认项，在第3行里设置了超时时间为300秒，即连上的客户端出现300秒空闲后Redis服务器将终止该客户端的连接。</p>
+<p>需要说明的是，放置配置信息的redis.conf文件可以放在其他路径，甚至文件名也可以用其他的。如果改成其他的，在第二步里用docker命令启动Redis服务器时，相关参数也需要对应修改。</p>
+<blockquote>
+<p>通过docker命令，用Redis的镜像创建容器，具体命令如下所示：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -itd --name redisWithConfig -v D:\work\redis\redisConf\redis.conf:/redisConfig/redis<br>.conf -p 6379:6379 redis:latest redis-server /redisConfig/redis.conf<br></code></pre></td></tr></table></figure>
+
+<p>其中，通过–name的方式指定该容器的名字为 redisWithConfig，用-v指定本机和Docker虚拟机内目录和文件的映射关系，具体是把 D:\work\redis\redisConf\redis.conf映射成Docker虚拟机里的redisConfig&#x2F;redis.conf文件，用-p参数来指定Docker 虚拟机的6379端口映射到本机的6379端口上，以 redis:latest的方式指定本容器的镜像为最新版本的Redis 镜像，再用redis-server &#x2F;redisConfig&#x2F;redis.conf的方式 指定启动redisWithConfig镜像时需要运行的命令是redis server &#x2F;redisConfig&#x2F;redis.conf，即用redis-server命令 启动Redis服务器时需要装载对应的redis.conf文件。</p>
+<p>该docker命令的关键点有两个：第一个是在redis-server命 令里指定了需要加载的Redis配置文件，第二个是通过-v参 数把第一步创建的redis.conf文件映射到Docker容器里。运行该命令后，再通过docker ps命令能看到如下结果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\32833&gt;docker ps<br>CONTAINER ID   IMAGE          COMMAND                   CREATED         STATUS         PORTS                    NAMES<br>5f3835681a52   redis:latest   &quot;docker-entrypoint.s…&quot;   2 minutes ago   Up 2 minutes   0.0.0.0:6379-&gt;6379/tcp   redisWithConfig<br></code></pre></td></tr></table></figure>
+
+<p>这说明基于redis:latest镜像的redisWithConfig容器已经成功启动，如果当前该容器不是处于UP状态，那么也可以通过docker start redisWithConfig命令启动该容器。</p>
+<blockquote>
+<p>通过第二步的docker run命令能在启动redisWithConfig容器的同时以加载redis.conf配置文件的方式启动Redis服务器。所以，可以通过docker exec -it redisWithConfig &#x2F;bin&#x2F;bash命令进入该容器。进入后再次通过redis-cli命令连接到Redis服务器时就可以通过config rewrite命令把配置项写入redis.conf里了。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
