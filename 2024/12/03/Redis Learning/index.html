@@ -27,7 +27,7 @@
 <meta property="og:description" content="This is a Redis Learning blog which is recorded during my internship. Learning the basic commands is boring, I admit it. BUT, Every high-rise buildings are built brick by brick. Hope I’ll be able to k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-03T08:30:00.000Z">
-<meta property="article:modified_time" content="2024-12-04T03:26:17.806Z">
+<meta property="article:modified_time" content="2024-12-04T08:00:56.963Z">
 <meta property="article:author" content="Monchello Gao">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          101 分钟
+          109 分钟
         
       </span>
     
@@ -733,6 +733,39 @@
 
 <p>通过mset能同时设置多个键值对信息。像第1行那样在mset命令前再加上command getkeys命令就能看到mset命令所对应的所有键的信息。该命令的返回结果如第2行到第4行所示，和第1行mset命令对应的设置是完全一致的。 </p>
 <p>第5行给出的set命令只能设置一对键值对，所以加上command getkeys命令只能看到如第6行所示的键，该返回结果也和第5行set命令的参数完全一致。</p>
+<h2 id="查看并修改服务器的常用配置"><a href="#查看并修改服务器的常用配置" class="headerlink" title="查看并修改服务器的常用配置"></a>查看并修改服务器的常用配置</h2><p>之前在启动Redis服务器时用到的都是默认的配置，所以连接密码和端口等参数都是默认的。除此之外，还能通过命令来修改服务器的配置，从而实现基于项目的定制化效果。</p>
+<h3 id="查看服务器的配置"><a href="#查看服务器的配置" class="headerlink" title="查看服务器的配置"></a>查看服务器的配置</h3><p>可以通过config get命令来查看服务器的配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 config get * <br>02 config get p*<br></code></pre></td></tr></table></figure>
+
+<p>通过第1行的命令能看到所有的服务器配置，通过第2行的命令能看到以p开头的配置。也就是说，config get命令支持包含通配符的模糊查询。</p>
+<p>命令config get * 的运行结果很长，这里就不展示了，如果要看详细结果，大家可以自行运行。下面给出的是config get p* 的运行结果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 127.0.0.1:6379&gt; config get p* <br>02 1) &quot;protected-mode&quot; <br>03 2) &quot;no&quot; <br>04 3) &quot;pidfile&quot; <br>05 4) &quot;&quot; <br>06 5) &quot;port&quot; <br>07 6) &quot;6379&quot; <br>08 7) &quot;proto-max-bulk-len&quot; <br>09 8) &quot;536870912&quot; <br></code></pre></td></tr></table></figure>
+
+<p>从第2行到第9行的运行结果大家能看到以p开头的配置项，其中第5行和第6行是描述端口号的配置项，说明默认的Redis连接端口是 6379。</p>
+<h3 id="通过修改服务器配置设置密码"><a href="#通过修改服务器配置设置密码" class="headerlink" title="通过修改服务器配置设置密码"></a>通过修改服务器配置设置密码</h3><blockquote>
+<p>通过config set命令能修改服务器的配置</p>
+<p>config set key value</p>
+<p>其中，key是待设置的配置项，value是设置后的值。注意，通过该命令修改后的配置项无须重启即可生效。在默认情况下，连接当前Redis服务器无须密码，通过如下代码可以设置连接密码为123456。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 127.0.0.1:6379&gt; config set requirepass 123456 <br>02 OK<br></code></pre></td></tr></table></figure>
+
+<p>设置完成后，通过redis-cli连接到服务器，再通过config get * 查看配置，就会提示没有权限，如下面的第3行所示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 root@d17f57dbef82:/data# redis-cli <br>02 127.0.0.1:6379&gt; config get * <br>03 (error) NOAUTH Authentication required.<br></code></pre></td></tr></table></figure>
+
+<p>此时需要通过auth password命令输入密码后才能进行查看和设置 配置项等操作，相关代码如下所示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 127.0.0.1:6379&gt; auth 123456 <br>02 OK <br>03 127.0.0.1:6379&gt; config get port* <br>04 1) &quot;port&quot; <br>05 2) &quot;6379&quot;<br></code></pre></td></tr></table></figure>
+
+<p>也就是说，通过config set命令能有效修改Redis服务器的配置， 但是通过config set命令修改的配置值在当前Redis服务器重启后会失效。</p>
+<p>由于本书是在Docker虚拟机环境上运行Redis服务器的，因此通过如下命令重启Redis服务器后，用config set命令设置的配置项会失效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 c:\work&gt;docker stop myFirstRedis <br>02 myFirstRedis <br>03 c:\work&gt;docker start myFirstRedis <br>04 myFirstRedis <br>05 c:\work&gt;docker exec -it myFirstRedis /bin/bash <br>06 root@6fa3794c8899:/data# redis-cli<br></code></pre></td></tr></table></figure>
+
+<p>这里用第1行和第3行的代码停止并启动了包含Redis的 myFirstRedis容器，从而达到重启Redis服务器的效果。随后通过第5行和第6行的命令连接到Redis服务器，此时再用config get requirepass命令查看密码，就会发现上次的修改已经失效。</p>
+<h3 id="用config-rewrite命令改写Redis配置文件"><a href="#用config-rewrite命令改写Redis配置文件" class="headerlink" title="用config rewrite命令改写Redis配置文件"></a>用config rewrite命令改写Redis配置文件</h3><p>之前已经提到，用config set命令修改的配置项会在Redis服务器 重启后失效，如果想让修改后的配置项一直生效，则需要在config set命令后运行config rewrite命令。</p>
+<p>通过config rewrite命令，可以把修改后的配置项写入 redis.conf 配置文件，所以执行该命令的前提是这个文件存在，如果不存在就会报错，如下所示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">01 127.0.0.1:6379&gt; config set requirepass 123456 <br>02 OK <br>03 127.0.0.1:6379&gt; config rewrite <br>04 (error) ERR The server is running without a config file<br></code></pre></td></tr></table></figure>
+
+<p>这里在运行完第1行的config set命令后，想要通过第3行的 config rewrite 命令把修改写入redis.conf配置文件，但是此时对应的配置文件不存在，所以会出现第4行所给出的错误提示。</p>
+<p>后文将给出生成redis.conf配置文件的详细步骤，通过这些步骤在启动时加载redis.conf文件后，就能正确地运行config rewrite命令了。</p>
 
                 
               </div>
