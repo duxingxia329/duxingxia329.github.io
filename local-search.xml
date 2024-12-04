@@ -4,7 +4,32 @@
   
   
   <entry>
-    <title>Python Web Crawler</title>
+    <title>Solutions of Everything</title>
+    <link href="/2024/12/04/Solutions-of-Everything/"/>
+    <url>/2024/12/04/Solutions-of-Everything/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Solutions-of-Everything"><a href="#Solutions-of-Everything" class="headerlink" title="Solutions of Everything"></a>Solutions of Everything</h1><h2 id="Hexo推上去的图片加载不出来"><a href="#Hexo推上去的图片加载不出来" class="headerlink" title="Hexo推上去的图片加载不出来"></a>Hexo推上去的图片加载不出来</h2><p>使用Hexo-asset-img插件，把之前的Hexo-asset-image插件卸载掉</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>手册</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>解决方法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python网络爬虫笔记</title>
     <link href="/2024/12/03/Python%20Web%20Crawler/"/>
     <url>/2024/12/03/Python%20Web%20Crawler/</url>
     
