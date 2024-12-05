@@ -49,8 +49,8 @@
   
   <entry>
     <title>Solutions of Everything</title>
-    <link href="/2024/12/04/Solutions-of-Everything/"/>
-    <url>/2024/12/04/Solutions-of-Everything/</url>
+    <link href="/2024/12/04/Solutions%20of%20Everything/"/>
+    <url>/2024/12/04/Solutions%20of%20Everything/</url>
     
     <content type="html"><![CDATA[<h1 id="Solutions-of-Everything"><a href="#Solutions-of-Everything" class="headerlink" title="Solutions of Everything"></a>Solutions of Everything</h1><h2 id="Hexo推上去的图片加载不出来"><a href="#Hexo推上去的图片加载不出来" class="headerlink" title="Hexo推上去的图片加载不出来"></a>Hexo推上去的图片加载不出来</h2><p>使用Hexo-asset-img插件，把之前的Hexo-asset-image插件卸载掉</p><p>安装 hexo-renderer-marked ： npm install hexo-renderer-marked –save</p><p>修改博客根目录的 _config.yml</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">marked:</span><br>  <span class="hljs-attr">prependRoot:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">postAsset:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>Typora设置</p>]]></content>
     
