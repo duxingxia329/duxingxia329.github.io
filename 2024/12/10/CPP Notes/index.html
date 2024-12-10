@@ -19,22 +19,22 @@
   <meta name="author" content="Monchello Gao">
   <meta name="keywords" content="Guitar, Gym, Movies, Travel, Food, Photography">
   
-    <meta name="description" content="您好，请出示您的通行证。">
+    <meta name="description" content="struct和class的区别struct等同于class 但是区别在于：struct的默认访问权限是public，class的默认访问权限是private。 一般情况下，struct会用来定义函数对象 对象的创建构造函数是一个特殊的成员函数 构造函数的形式： ​	与类名相同​	没有返回值，即使void也不能有 构造函数的作用：用来初始化数据成员 默认构造函数自己动手：调用构造函数的时候，打印出来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MIND PALACE">
-<meta property="og:url" content="http://example.com/2024/12/05/Diary/index.html">
+<meta property="og:title" content="CPP Notes">
+<meta property="og:url" content="http://example.com/2024/12/10/CPP%20Notes/index.html">
 <meta property="og:site_name" content="GuaNew&#39;s Blog">
-<meta property="og:description" content="您好，请出示您的通行证。">
+<meta property="og:description" content="struct和class的区别struct等同于class 但是区别在于：struct的默认访问权限是public，class的默认访问权限是private。 一般情况下，struct会用来定义函数对象 对象的创建构造函数是一个特殊的成员函数 构造函数的形式： ​	与类名相同​	没有返回值，即使void也不能有 构造函数的作用：用来初始化数据成员 默认构造函数自己动手：调用构造函数的时候，打印出来">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-05T00:44:00.000Z">
-<meta property="article:modified_time" content="2024-12-05T01:08:47.537Z">
+<meta property="article:published_time" content="2024-12-10T08:23:00.000Z">
+<meta property="article:modified_time" content="2024-12-10T09:42:35.816Z">
 <meta property="article:author" content="Monchello Gao">
-<meta property="article:tag" content="迷雾森林">
+<meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>MIND PALACE - GuaNew&#39;s Blog</title>
+  <title>CPP Notes - GuaNew&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MIND PALACE"></span>
+            <span id="subtitle" data-typed-text="CPP Notes"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-05 08:44" pubdate>
-          2024年12月5日 早上
+        <time datetime="2024-12-10 16:23" pubdate>
+          2024年12月10日 下午
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 字
+          575 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -271,35 +271,74 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">MIND PALACE</h1>
+            <h1 id="seo-header">CPP Notes</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，你还无法进入。" data-whm="抱歉，不要硬来噢，去其他地方看看吧。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a6ccbeac0b90a1e63b6308ea925d123ad321771c655096b5937fa1cc232363e1">630e18ecb6079916edb310f9273e5d631515cd9113cc9ceca966990ab86d38dcb218c02cafc16515ea104355585bf012093e7c5b2d62db2588e1d7b3f4934fa8188c7868de3765766cdc34ed2366c347df66fc5b6d888a160e01328971accf4e836b0a543c4d5eff724491261ea8960da06271b9a300a75cee7d7675bb54f6d726e307604337e59c632b4e24ed9eaed76c2f050c050ee3b46fae2a10ae767be7588d4c6a58e08ece9936be35a3f537525a6f136ebfe4c21e192057ca2efc6ea8a082a906e45d9f7426e79e03ae3572b036e34878cf4d7f524b086e3a6b17d786</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">你还记得最快乐的时光吗？</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
+              <div class="markdown-body">
+                
+                <h1 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a>struct和class的区别</h1><p>struct等同于class</p>
+<p>但是区别在于：struct的默认访问权限是public，class的默认访问权限是private。</p>
+<p>一般情况下，struct会用来定义函数对象</p>
+<h1 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h1><p>构造函数是一个特殊的成员函数</p>
+<p>构造函数的形式：</p>
+<p>​	与类名相同<br>​	没有返回值，即使void也不能有</p>
+<p>构造函数的作用：用来初始化数据成员</p>
+<h1 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h1><p>自己动手：调用构造函数的时候，打印出来（无参）</p>
+<p>当类中显示调用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">if</span> 0</span><br>这里的内容将不会执行<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
 
-              
+<p>当类中显式调用构造函数时，系统不会再自动提供默认构造函数</p>
+<p>如果还希望能够通过默认构造函数创建对象，则必须要手动显式提供一个默认构造函数。 </p>
+<p>自己动手：以一当三 构造函数</p>
+<h1 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h1><p>C++对象的创建分为两个阶段</p>
+<ol>
+<li>初始化阶段</li>
+<li>计算阶段</li>
+</ol>
+<p>初始化列表的形式位于构造函数的形参列表之后，大括号（函数执行体）之前的位置，用冒号进行分割。对于多个数据成员，中间用逗号进行分隔。</p>
+<p>自己动手：初始化列表（有多个的时候，一行写一个）<br>注意：数据成员的初始化，与其初始化列表中的初始化顺序无关，只与其在类中被声明的顺序有关，会按其在类中被声明的顺序进行初始化</p>
+<h1 id="对象的销毁"><a href="#对象的销毁" class="headerlink" title="对象的销毁"></a>对象的销毁</h1><p>析构函数的形式</p>
+<p>​	与类目相同<br>​	但要在其前面加上一个波浪号~<br>​	没有返回值，即使是void也不能有<br>​	没有参数<br>​	只有一个</p>
+<p>析构函数的作用：用来清理对象中的数据成员所申请的资源</p>
+<p>当对象被销毁时，析构函数会自动调用</p>
+<p>当类中没有显示定义析构函数的时候，系统会自动提供一个析构函数</p>
+<p>成员函数不占据类型的存储空间，他们都存放在程序代码区</p>
+<p>申请了堆空间的资源，要手动销毁，销毁后指针要指向空指针</p>
+<p>自己动手：将之前申请的资源销毁一下</p>
+
+                
+              </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%BF%B7%E9%9B%BE%E6%A3%AE%E6%9E%97/" class="print-no-link">#迷雾森林</a>
+        <a href="/tags/cpp/" class="print-no-link">#cpp</a>
       
     </div>
   
@@ -311,8 +350,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MIND PALACE</div>
-      <div>http://example.com/2024/12/05/Diary/</div>
+      <div>CPP Notes</div>
+      <div>http://example.com/2024/12/10/CPP Notes/</div>
     </div>
     <div class="license-meta">
       
@@ -324,7 +363,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月5日</div>
+          <div>2024年12月10日</div>
         </div>
       
       
@@ -356,18 +395,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/12/05/Algorithm%20Questions/" title="Algorithm Questions">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Algorithm Questions</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/12/04/Guitar%20Tablature/" title="Guitar Tablature">
-                        <span class="hidden-mobile">Guitar Tablature</span>
+                      <a href="/2024/12/05/Algorithm%20Questions/" title="Algorithm Questions">
+                        <span class="hidden-mobile">Algorithm Questions</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -522,23 +555,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refresh) {
-            Fluid.boot.refresh();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   
